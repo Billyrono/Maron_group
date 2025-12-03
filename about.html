@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Learn about MARON Real Estate Group - Your trusted partner for premium properties in Kericho with award-winning designs and exceptional service.">
+    <meta name="keywords" content="about MARON, real estate Kericho, company story, real estate developer">
+    <meta name="author" content="MARON Real Estate Group">
+
+    <meta property="og:title" content="About MARON Real Estate Group">
+    <meta property="og:description"
+        content="Discover the story behind MARON Real Estate Group and our commitment to premium properties in Kericho.">
+    <meta property="og:type" content="website">
+
+    <link href="css/maron.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>About Us</title>
+
+    <style>
+        .page-hero {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('images/imageProxy.webp');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .page-hero-content h6 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .page-hero-content h1 {
+            color: var(--text-light);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .story-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+
+        .story-image {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: var(--spacing-lg);
+            background-color: var(--bg-white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            font-family: var(--font-heading);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-medium);
+            font-weight: 600;
+        }
+
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .amenity-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+            padding: var(--spacing-lg);
+            background-color: var(--bg-white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-base);
+        }
+
+        .amenity-item:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .amenity-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            flex-shrink: 0;
+        }
+
+        .amenity-content h4 {
+            margin-bottom: var(--spacing-xs);
+            font-size: 1.1rem;
+        }
+
+        .amenity-content p {
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        @media (max-width: 992px) {
+            .story-section {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <i class="fa-brands fa-medium"></i>
+            </div>
+            <div class="loader"></div>
+            <p class="loader-text">Loading...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-brands fa-medium"></i>
+            <span>MARON</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <div class="social-icons">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-instagram"></i>
+            </div>
+        </ul>
+        <button class="menu-btn">
+            <i class="fa fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h6>About Us</h6>
+            <h1>Building Dreams, Creating Homes</h1>
+            <p class="text-large">Excellence in Real Estate Development Since Day One</p>
+        </div>
+    </section>
+
+    <!-- Company Story -->
+    <section class="section">
+        <div class="container">
+            <div class="story-section">
+                <div class="story-image">
+                    <img src="images/photo-1518733057094-95b53143d2a7.avif" alt="MARON Headquarters" loading="lazy">
+                </div>
+                <div>
+                    <h6>Our Story</h6>
+                    <h2>Welcome to MARON Real Estate Group</h2>
+                    <p>MARON Real Estate Group stands as a beacon of luxury and innovation in Kericho's property
+                        development landscape. With a commitment to excellence that spans every project, we have
+                        redefined what it means to create truly exceptional living spaces.</p>
+                    <p>Our journey began with a simple vision: to elevate the standard of living in Kericho through
+                        meticulously designed properties that blend modern aesthetics with practical functionality.
+                        Today, we continue to push boundaries, creating homes that inspire and communities that thrive.
+                    </p>
+                    <p>By aiming to take the life quality to an upper level with all realized projects, MARON continues
+                        to be the address of luxury, setting new benchmarks in design, construction quality, and
+                        customer satisfaction.</p>
+                    <a href="contact.html" class="btn btn btn-primary mt-lg">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="text-center mb-lg">
+                <h6>Our Achievements</h6>
+                <h2>Success in Numbers</h2>
+                <p class="text-large">Delivering excellence across every metric</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card fade-in counter-card">
+                    <div class="stat-number">45+</div>
+                    <div class="stat-label">Properties Developed</div>
+                </div>
+                <div class="stat-card fade-in counter-card">
+                    <div class=" stat-number">120+</div>
+                    <div class="stat-label">Happy Families</div>
+                </div>
+                <div class="stat-card fade-in counter-card">
+                    <div class="stat-number">2+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-card fade-in counter-card">
+                    <div class="stat-number">3+</div>
+                    <div class="stat-label">Awards Won</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities & Features -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center mb-lg">
+                <h6>What We Offer</h6>
+                <h2>Premium Amenities & Features</h2>
+                <p class="text-large">Every detail designed for your comfort</p>
+            </div>
+            <div class="amenities-grid">
+                <div class="amenity-item">
+                    <div class="amenity-icon">
+                        <i class="fas fa-swimming-pool"></i>
+                    </div>
+                    <div class="amenity-content">
+                        <h4>Swimming Pool</h4>
+                        <p>Olympic-sized pools with temperature control and children's area</p>
+                    </div>
+                </div>
+                <div class="amenity-item">
+                    <div class="amenity-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <div class="amenity-content">
+                        <h4>Fitness Center</h4>
+                        <p>Fully equipped gym with modern equipment and personal trainers</p>
+                    </div>
+                </div>
+                <div class="amenity-item">
+                    <div class="amenity-icon">
+                        <i class="fas fa-parking"></i>
+                    </div>
+                    <div class="amenity-content">
+                        <h4>Covered Parking</h4>
+                        <p>Secure underground parking with 24/7 surveillance</p>
+                    </div>
+                </div>
+                <div class="amenity-item">
+                    <div class="amenity-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="amenity-content">
+                        <h4>24/7 Security</h4>
+                        <p>Professional security team and modern surveillance systems</p>
+                    </div>
+                </div>
+                <div class="amenity-item">
+                    <div class="amenity-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <div class="amenity-content">
+                        <h4>Green Spaces</h4>
+                        <p>Landscaped gardens and recreational parks for residents</p>
+                    </div>
+                </div>
+                <div class="amenity-item">
+                    <div class="amenity-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="amenity-content">
+                        <h4>Community Center</h4>
+                        <p>Modern facilities for social gatherings and events</p>
+                    </div>
+                </div>
+                <div class="amenity-item">
+                    <div class="amenity-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <div class="amenity-content">
+                        <h4>Children's Playground</h4>
+                        <p>Safe and fun play areas with modern equipment</p>
+                    </div>
+                </div>
+                <div class="amenity-item">
+                    <div class="amenity-icon">
+                        <i class="fas fa-basketball-ball"></i>
+                    </div>
+                    <div class="amenity-content">
+                        <h4>Sports Facilities</h4>
+                        <p>Basketball courts, tennis courts, and multipurpose fields</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Find Your Dream Home?</h2>
+            <p>Visit our sales office and discover the MARON difference</p>
+            <div class="mt-lg">
+                <a href="contact.html" class="btn btn-dark btn-large">Contact Us Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>MARON Real Estate Group</h3>
+                    <p>By aiming to take the life quality to an upper level with all realized projects, MARON continues
+                        to be the address of luxury in Kericho.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Properties</h4>
+                    <ul>
+                        <li><a href="#">Apartments</a></li>
+                        <li><a href="#">Houses</a></li>
+                        <li><a href="#">Commercial</a></li>
+                        <li><a href="#">Land</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 1097-20200 Kericho</p>
+                    <p><i class="fas fa-phone"></i> +(254) 746537878</p>
+                    <p><i class="fas fa-envelope"></i> contact@maron.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">&copy; MARON Real Estate Group. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+    </button>
+</body>
+
+</html>

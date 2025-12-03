@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Contact MARON Real Estate Group - Get in touch with us for property inquiries, viewings, and more information about our developments in Kericho.">
+    <meta name="keywords" content="contact MARON, real estate inquiry, property viewing, Kericho contact">
+    <meta name="author" content="MARON Real Estate Group">
+
+    <meta property="og:title" content="Contact MARON Real Estate Group">
+    <meta property="og:description" content="Get in touch with our team for property inquiries and viewings.">
+    <meta property="og:type" content="website">
+
+    <link href="css/maron.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Contact Us</title>
+
+    <style>
+        .contact-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            align-items: start;
+        }
+
+        .contact-form {
+            background-color: var(--bg-white);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-form h3 {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: all var(--transition-base);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(204, 85, 0, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+        }
+
+        .contact-info-cards {
+            display: grid;
+            gap: var(--spacing-lg);
+        }
+
+        .info-card {
+            background-color: var(--bg-white);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .info-card-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .info-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-gradient);
+            color: var(--text-light);
+            border-radius: var(--radius-lg);
+            font-size: 1.5rem;
+        }
+
+        .info-card h4 {
+            margin: 0;
+            font-size: 1.25rem;
+        }
+
+        .info-details p {
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-medium);
+            font-size: 0.95rem;
+        }
+
+        .info-details a {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .info-details a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 992px) {
+            .contact-section {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <i class="fa-brands fa-medium"></i>
+            </div>
+            <div class="loader"></div>
+            <p class="loader-text">Loading...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-brands fa-medium"></i>
+            <span>MARON</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <div class="social-icons">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-instagram"></i>
+            </div>
+        </ul>
+        <button class="menu-btn">
+            <i class="fa fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h6>Contact Us</h6>
+            <h1>Let's Start a Conversation</h1>
+            <p class="text-large">Get in touch with our team for property inquiries and viewings</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section">
+        <div class="container">
+            <div class="contact-section">
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <p class="mb-lg">Fill out the form below and we'll get back to you as soon as possible.</p>
+
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="propertyType">Property Interest</label>
+                            <select id="propertyType" name="propertyType">
+                                <option value="">Select property type</option>
+                                <option value="apartment">Apartment</option>
+                                <option value="house">House</option>
+                                <option value="commercial">Commercial</option>
+                                <option value="land">Land</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required
+                                placeholder="Tell us about your property requirements..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large" style="width: 100%;">Send
+                            Message</button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-info-cards">
+                    <div class="info-card">
+                        <div class="info-card-header">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h4>Sales Office</h4>
+                        </div>
+                        <div class="info-details">
+                            <p><strong>Address:</strong></p>
+                            <p>1097-20200 Kericho<br>Kenya</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-card-header">
+                            <div class="info-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h4>Working Hours</h4>
+                        </div>
+                        <div class="info-details">
+                            <p><strong>Monday to Friday:</strong><br>09:00 AM - 06:30 PM</p>
+                            <p><strong>Saturday:</strong><br>09:00 AM - 03:30 PM</p>
+                            <p><strong>Sunday:</strong><br>Closed</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-card-header">
+                            <div class="info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <h4>Call Center</h4>
+                        </div>
+                        <div class="info-details">
+                            <p><strong>Phone:</strong><br>
+                                <a href="tel:+254746537878">+(254) 746537878</a>
+                            </p>
+                            <p><strong>Email:</strong><br>
+                                <a href="mailto:contact@maron.com">contact@maron.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Find Your Perfect Home?</h2>
+            <p>Visit our office today and let us help you find your dream property</p>
+            <div class="mt-lg">
+                <a href="index.html#properties" class="btn btn-dark btn-large">Browse Properties</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>MARON Real Estate Group</h3>
+                    <p>By aiming to take the life quality to an upper level with all realized projects, MARON continues
+                        to be the address of luxury in Kericho.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Properties</h4>
+                    <ul>
+                        <li><a href="#">Apartments</a></li>
+                        <li><a href="#">Houses</a></li>
+                        <li><a href="#">Commercial</a></li>
+                        <li><a href="#">Land</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 1097-20200 Kericho</p>
+                    <p><i class="fas fa-phone"></i> +(254) 746537878</p>
+                    <p><i class="fas fa-envelope"></i> contact@maron.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">&copy; MARON Real Estate Group. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+    </button>
+</body>
+
+</html>

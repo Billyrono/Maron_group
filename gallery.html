@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="View our photo gallery of premium properties by MARON Real Estate Group in Kericho. Browse our collection of beautifully designed homes.">
+    <meta name="keywords" content="property gallery, real estate photos, MARON properties">
+    <meta name="author" content="MARON Real Estate Group">
+
+    <meta property="og:title" content="MARON Real Estate Gallery">
+    <meta property="og:description" content="Browse our stunning collection of premium properties.">
+    <meta property="og:type" content="website">
+
+    <link href="css/maron.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Gallery</title>
+
+    <style>
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--spacing-lg);
+            padding: var(--spacing-lg) 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 350px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+            padding: var(--spacing-lg);
+            transform: translateY(100%);
+            transition: transform var(--transition-base);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h4 {
+            color: var(--text-light);
+            margin-bottom: var(--spacing-xs);
+            font-size: 1.25rem;
+        }
+
+        .gallery-overlay p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <i class="fa-brands fa-medium"></i>
+            </div>
+            <div class="loader"></div>
+            <p class="loader-text">Loading...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-brands fa-medium"></i>
+            <span>MARON</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <div class="social-icons">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-instagram"></i>
+            </div>
+        </ul>
+        <button class="menu-btn">
+            <i class="fa fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h6>Our Gallery</h6>
+            <h1>Explore MARON Properties</h1>
+            <p class="text-large">Browse our stunning collection of premium living spaces</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center mb-lg">
+                <h6>Photo Gallery</h6>
+                <h2>Our Featured Projects</h2>
+                <p class="text-large">Discover the beauty and quality of our developments</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">
+                    <img src="images/imageProxy.webp" alt="Modern Property Exterior" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Modern Property Exterior</h4>
+                        <p>Contemporary design with premium finishes</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item fade-in">
+                    <img src="images/imageProxy (7).webp" alt="Luxury Architecture" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Luxury Architecture</h4>
+                        <p>Beautiful architectural details and design</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item fade-in">
+                    <img src="images/analog-landscape-city-with-buildings_23-2149661456.avif" alt="Urban Landscape"
+                        loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Urban Landscape</h4>
+                        <p>Modern buildings in prime locations</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item fade-in">
+                    <img src="images/photo-1518733057094-95b53143d2a7.avif" alt="Creative Interior Design"
+                        loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Creative Interior Design</h4>
+                        <p>Award-winning interior spaces</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item fade-in">
+                    <img src="images/photo-1484154218962-a197022b5858.avif" alt="Renovated Modern Space" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Renovated Modern Space</h4>
+                        <p>Contemporary living environments</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item fade-in">
+                    <img src="images/photo-1544984243-ec57ea16fe25.avif" alt="Comfortable Home Interior" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Comfortable Home Interior</h4>
+                        <p>Spacious and inviting living spaces</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Interested in Viewing a Property?</h2>
+            <p>Schedule a personal tour and experience MARON properties firsthand</p>
+            <div class="mt-lg">
+                <a href="contact.html" class="btn btn-dark btn-large">Book a Tour</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>MARON Real Estate Group</h3>
+                    <p>By aiming to take the life quality to an upper level with all realized projects, MARON continues
+                        to be the address of luxury in Kericho.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Properties</h4>
+                    <ul>
+                        <li><a href="#">Apartments</a></li>
+                        <li><a href="#">Houses</a></li>
+                        <li><a href="#">Commercial</a></li>
+                        <li><a href="#">Land</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 1097-20200 Kericho</p>
+                    <p><i class="fas fa-phone"></i> +(254) 746537878</p>
+                    <p><i class="fas fa-envelope"></i> contact@maron.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">&copy; MARON Real Estate Group. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+    </button>
+</body>
+
+</html>

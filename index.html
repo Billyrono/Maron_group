@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="MARON Real Estate Group - Your trusted partner for premium real estate in Kericho. Discover beautifully designed properties with modern amenities.">
+    <meta name="keywords"
+        content="real estate, Kericho, property, houses, MARON Group, real estate Kenya, luxury homes">
+    <meta name="author" content="MARON Real Estate Group">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="MARON Real Estate Group">
+    <meta property="og:description"
+        content="We build your dream house. Discover beautifully designed properties with modern amenities.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://marongroup.netlify.app">
+
+    <link href="css/maron.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: 'rgba(204, 85, 0, 1)',
+                        'primary-light': 'rgba(204, 85, 0, 0.8)',
+                        'primary-dark': 'rgba(153, 64, 0, 1)',
+                    }
+                }
+            }
+        }
+    </script>
+    <title>MARON Real Estate Group</title>
+
+    <style>
+        /* Additional homepage-specific styles */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('images/imageProxy.webp');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            padding: 0 var(--spacing-md);
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+            background: rgba(255, 255, 255, 0.1);
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: var(--radius-full);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero {
+            color: var(--text-light);
+            margin-bottom: var(--spacing-md);
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .hero-subtitle {
+            animation: slideInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--spacing-lg);
+            line-height: 1.8;
+            animation: slideInUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero-buttons {
+            animation: slideInUp 0.8s ease-out 0.6s both;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: var(--spacing-lg);
+            background-color: var(--bg-white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-base);
+            animation: fadeInScale 0.6s ease-out backwards;
+        }
+
+        .feature-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .feature-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .feature-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .feature-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .feature-card:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .feature-card:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+            transition: all var(--transition-base);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(204, 85, 0, 0.1), rgba(204, 85, 0, 0.05));
+            border-radius: var(--radius-lg);
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: rotateY(360deg);
+            background: linear-gradient(135deg, rgba(204, 85, 0, 0.2), rgba(204, 85, 0, 0.1));
+        }
+
+        .feature-card h4 {
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            /* normalized to project baseline */
+            color: var(--text-medium);
+        }
+
+        /* Property Cards */
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+
+        .property-card {
+            background-color: var(--bg-white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .property-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .property-image {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .property-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .property-card:hover .property-image img {
+            transform: scale(1.1);
+        }
+
+        .property-badge {
+            position: absolute;
+            top: var(--spacing-md);
+            right: var(--spacing-md);
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 8px 16px;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .property-content {
+            padding: var(--spacing-lg);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .property-content p:last-of-type {
+            flex: 1;
+        }
+
+        .property-content .btn {
+            margin-top: auto;
+        }
+
+        .property-title {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .property-location {
+            color: var(--text-medium);
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .property-features {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            padding: var(--spacing-md) 0;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .property-feature {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            font-size: var(--font-small);
+            color: var(--text-medium);
+        }
+
+        .property-feature i {
+            color: var(--primary-color);
+        }
+
+        /* Floor Plans Tabs */
+        .floor-plans {
+            background-color: var(--bg-light);
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 16px 32px;
+            background-color: var(--bg-white);
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            position: relative;
+        }
+
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--transition-base);
+        }
+
+        .tab-btn:hover::after {
+            transform: scaleX(1);
+        }
+
+        .tab-btn.active::after {
+            transform: scaleX(1);
+        }
+
+        .tab-btn.active {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border-color: var(--primary-color);
+        }
+
+        .tab-btn:hover {
+            border-color: var(--primary-color);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+
+        .floor-plan-image {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .floor-plan-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .floor-plan-specs {
+            display: grid;
+            gap: var(--spacing-md);
+        }
+
+        .floor-plan-specs h3 {
+            color: var(--text-dark);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .floor-plan-specs>p {
+            color: var(--text-medium);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--spacing-md);
+            background-color: var(--bg-white);
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--primary-color);
+            transition: all var(--transition-base);
+        }
+
+        .spec-item:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateX(4px);
+        }
+
+        .spec-label {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .spec-value {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--primary-gradient);
+            color: var(--text-light);
+            text-align: center;
+            padding: var(--spacing-xl) 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .cta-section>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            color: var(--text-light);
+            margin-bottom: var(--spacing-md);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-lg);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            padding: var(--spacing-xl) 0 var(--spacing-md);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer-about h3 {
+            color: var(--text-light);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            color: var(--text-light);
+            transition: all var(--transition-base);
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-4px);
+        }
+
+        .footer-links h4 {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            transition: all var(--transition-fast);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            padding-left: 4px;
+        }
+
+        .footer-contact p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .footer-contact i {
+            color: var(--primary-color);
+            width: 20px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: var(--spacing-md);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: var(--font-small);
+        }
+
+        /* Button Enhancements */
+        .btn {
+            box-shadow: 0 4px 15px rgba(204, 85, 0, 0.3);
+            transform: translateY(0);
+            transition: all var(--transition-base);
+        }
+
+        .btn:hover {
+            box-shadow: 0 8px 25px rgba(204, 85, 0, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:active,
+        .btn-secondary:active,
+        .btn-outline:active {
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .tab-content.active {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-description {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .properties-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tabs {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .tab-btn {
+                width: 100%;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <i class="fa-brands fa-medium"></i>
+            </div>
+            <div class="loader"></div>
+            <p class="loader-text">Loading...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-brands fa-medium" aria-hidden="true"></i>
+            <span>MARON</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <div class="social-icons">
+                <i class="fa-brands fa-facebook" aria-label="Facebook" role="button" tabindex="0"></i>
+                <i class="fa-brands fa-twitter" aria-label="Twitter" role="button" tabindex="0"></i>
+                <i class="fa-brands fa-instagram" aria-label="Instagram" role="button" tabindex="0"></i>
+            </div>
+        </ul>
+        <button class="menu-btn" aria-label="Toggle menu">
+            <i class="fa fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <p class="hero-subtitle">MARON Elite Residences</p>
+            <h1
+                style="color: var(--text-light); margin-bottom: var(--spacing-md); font-size: 5vw; font-family: var(--font-heading); line-height: 1.2; text-align: center;">
+                We Build Your Dream House</h1>
+            <p class="hero-description">Living spaces for creative people in Kericho - Beautifully designed properties
+                with modern amenities and attention to every detail.</p>
+            <div class="hero-buttons">
+                <a href="#properties" class="btn btn-primary btn-large">Explore Properties</a>
+                <a href="contact.html" class="btn btn-secondary btn-large">Schedule a Visit</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center mb-lg">
+                <h6></h6>
+                <h2>Why Choose MARON</h2>
+                <p class="text-large">Experience luxury living with comprehensive amenities</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-home"></i></div>
+                    <h4>Premium Design</h4>
+                    <p>Award-winning interior designs with modern aesthetics and functionality</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <h4>Prime Location</h4>
+                    <p>Strategic locations in Kericho with easy access to amenities</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Secure Living</h4>
+                    <p>24/7 security and modern safety systems for peace of mind</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+                    <h4>Green Spaces</h4>
+                    <p>Beautiful landscaping and outdoor areas for relaxation</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-wifi"></i></div>
+                    <h4>Smart Homes</h4>
+                    <p>Modern amenities and smart home technology integration</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-handshake"></i></div>
+                    <h4>Flexible Payment</h4>
+                    <p>Affordable prices with convenient payment plans</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tailwind Image Carousel Section -->
+    <section class="relative bg-gradient-to-br from-gray-900 to-gray-800 py-20 overflow-hidden"
+        id="tailwind-carousel-section">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h6 class="text-primary text-sm font-semibold uppercase tracking-wider mb-3">Our Projects</h6>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Explore Our Latest Developments</h2>
+                <p class="text-gray-300 text-lg max-w-2xl mx-auto">Swipe through our stunning property showcase</p>
+            </div>
+
+            <!-- Carousel Container -->
+            <div class="relative max-w-5xl mx-auto" id="tailwind-carousel">
+                <!-- Carousel Images -->
+                <div class="relative h-96 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+                    <div class="carousel-track flex transition-all duration-700 ease-in-out h-full">
+                        <!-- Slide 1 -->
+                        <div class="carousel-slide min-w-full h-full relative">
+                            <img src="images/photo-1518733057094-95b53143d2a7.avif" alt="Modern Property"
+                                class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                                <h3 class="text-3xl font-bold mb-2">Premium Interiors</h3>
+                                <p class="text-gray-200 text-lg">Award-winning interior designs with modern aesthetics
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="carousel-slide min-w-full h-full relative">
+                            <img src="images/photo-1484154218962-a197022b5858.avif" alt="Luxury Space"
+                                class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                                <h3 class="text-3xl font-bold mb-2">Renovated Excellence</h3>
+                                <p class="text-gray-200 text-lg">Contemporary spaces with timeless elegance</p>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="carousel-slide min-w-full h-full relative">
+                            <img src="images/photo-1544984243-ec57ea16fe25.avif" alt="Family Home"
+                                class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                                <h3 class="text-3xl font-bold mb-2">Spacious Living</h3>
+                                <p class="text-gray-200 text-lg">Perfect family homes with comprehensive amenities</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <button
+                    class="carousel-btn-prev absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-10">
+                    <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                        </path>
+                    </svg>
+                </button>
+                <button
+                    class="carousel-btn-next absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-10">
+                    <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+
+                <!-- Indicators -->
+                <div class="flex justify-center gap-2 mt-6">
+                    <button class="carousel-indicator w-3 h-3 rounded-full bg-primary transition-all duration-300"
+                        data-slide="0"></button>
+                    <button
+                        class="carousel-indicator w-3 h-3 rounded-full bg-white/50 hover:bg-white/75 transition-all duration-300"
+                        data-slide="1"></button>
+                    <button
+                        class="carousel-indicator w-3 h-3 rounded-full bg-white/50 hover:bg-white/75 transition-all duration-300"
+                        data-slide="2"></button>
+                </div>
+            </div>
+
+            <!-- Animated Stats Counters -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 max-w-4xl mx-auto">
+                <div class="text-center p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 counter-card"
+                    data-target="45">
+                    <div class="text-5xl font-bold text-primary mb-2 counter-number">0</div>
+                    <div class="text-white text-sm font-semibold uppercase tracking-wide">Properties</div>
+                </div>
+                <div class="text-center p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 counter-card"
+                    data-target="120">
+                    <div class="text-5xl font-bold text-primary mb-2 counter-number">0</div>
+                    <div class="text-white text-sm font-semibold uppercase tracking-wide">Happy Clients</div>
+                </div>
+                <div class="text-center p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 counter-card"
+                    data-target="2">
+                    <div class="text-5xl font-bold text-primary mb-2 counter-number">0</div>
+                    <div class="text-white text-sm font-semibold uppercase tracking-wide">Years</div>
+                </div>
+                <div class="text-center p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 counter-card"
+                    data-target="3">
+                    <div class="text-5xl font-bold text-primary mb-2 counter-number">0</div>
+                    <div class="text-white text-sm font-semibold uppercase tracking-wide">Awards</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section id="properties" class="section section-light">
+        <div class="container">
+            <div class="text-center mb-lg">
+                <h6>MARON Properties</h6>
+                <h2>Featured Living Spaces</h2>
+                <p class="text-large">Discover our collection of premium properties</p>
+            </div>
+            <div class="properties-grid">
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="images/photo-1518733057094-95b53143d2a7.avif" alt="Creative Interior Design"
+                            loading="lazy">
+                        <span class="property-badge">Featured</span>
+                    </div>
+                    <div class="property-content">
+                        <h3 class="property-title">Creative Interior Designs</h3>
+                        <p class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Kericho Central
+                        </p>
+                        <div class="property-features">
+                            <div class="property-feature">
+                                <i class="fas fa-bed"></i>
+                                <span>3 Bedrooms</span>
+                            </div>
+                            <div class="property-feature">
+                                <i class="fas fa-bath"></i>
+                                <span>2 Baths</span>
+                            </div>
+                            <div class="property-feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>90m²</span>
+                            </div>
+                        </div>
+                        <p>Experience luxury living with professionally designed interiors featuring premium materials
+                            and modern amenities.</p>
+                        <a href="contact.html" class="btn btn-outline mt-md">View Details</a>
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="images/photo-1484154218962-a197022b5858.avif" alt="Renovated Space" loading="lazy">
+                        <span class="property-badge">New</span>
+                    </div>
+                    <div class="property-content">
+                        <h3 class="property-title">Newly Renovated Space</h3>
+                        <p class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Kericho West
+                        </p>
+                        <div class="property-features">
+                            <div class="property-feature">
+                                <i class="fas fa-bed"></i>
+                                <span>2 Bedrooms</span>
+                            </div>
+                            <div class="property-feature">
+                                <i class="fas fa-bath"></i>
+                                <span>2 Baths</span>
+                            </div>
+                            <div class="property-feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>65m²</span>
+                            </div>
+                        </div>
+                        <p>Completely transformed spaces that blend contemporary design with timeless elegance and
+                            architectural character.</p>
+                        <a href="contact.html" class="btn btn-outline mt-md">View Details</a>
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="images/photo-1544984243-ec57ea16fe25.avif" alt="Comfortable Home" loading="lazy">
+                    </div>
+                    <div class="property-content">
+                        <h3 class="property-title">Spacious Family Home</h3>
+                        <p class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Kericho East
+                        </p>
+                        <div class="property-features">
+                            <div class="property-feature">
+                                <i class="fas fa-bed"></i>
+                                <span>4 Bedrooms</span>
+                            </div>
+                            <div class="property-feature">
+                                <i class="fas fa-bath"></i>
+                                <span>3 Baths</span>
+                            </div>
+                            <div class="property-feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>120m²</span>
+                            </div>
+                        </div>
+                        <p>Perfect family living space with comprehensive amenitiesdesigned for comfortable contemporary
+                            living.</p>
+                        <a href="contact.html" class="btn btn-outline mt-md">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floor Plans Section -->
+    <section class="section floor-plans">
+        <div class="container-narrow">
+            <div class="text-center mb-lg">
+                <h6>MARON Floor Plans</h6>
+                <h2>Choose Your Perfect Space</h2>
+                <p class="text-large">Affordable prices with appropriate payment opportunities</p>
+            </div>
+
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="1room">1 Room - 47m²</button>
+                <button class="tab-btn" data-tab="2room">2 Rooms - 65m²</button>
+                <button class="tab-btn" data-tab="3room">3 Rooms - 90m²</button>
+            </div>
+
+            <div id="1room" class="tab-content active">
+                <div class="floor-plan-image">
+                    <img src="images/imageProxy.webp" alt="1 Room Floor Plan" loading="lazy">
+                </div>
+                <div class="floor-plan-specs">
+                    <h3>1 Room Apartment</h3>
+                    <p>Perfect for singles or couples looking for a compact, modern living space.</p>
+                    <div class="spec-item">
+                        <span class="spec-label">Total Area</span>
+                        <span class="spec-value">47m²</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Bedrooms</span>
+                        <span class="spec-value">1</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Bathrooms</span>
+                        <span class="spec-value">1</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Starting Price</span>
+                        <span class="spec-value">Contact Us</span>
+                    </div>
+                    <a href="contact.html" class="btn btn-primary mt-md">Schedule Viewing</a>
+                </div>
+            </div>
+
+            <div id="2room" class="tab-content">
+                <div class="floor-plan-image">
+                    <img src="images/imageProxy (7).webp" alt="2 Rooms Floor Plan" loading="lazy">
+                </div>
+                <div class="floor-plan-specs">
+                    <h3>2 Rooms Apartment</h3>
+                    <p>Ideal family space with comfortable living areas and modern amenities.</p>
+                    <div class="spec-item">
+                        <span class="spec-label">Total Area</span>
+                        <span class="spec-value">65m²</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Bedrooms</span>
+                        <span class="spec-value">2</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Bathrooms</span>
+                        <span class="spec-value">2</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Starting Price</span>
+                        <span class="spec-value">Contact Us</span>
+                    </div>
+                    <a href="contact.html" class="btn btn-primary mt-md">Schedule Viewing</a>
+                </div>
+            </div>
+
+            <div id="3room" class="tab-content">
+                <div class="floor-plan-image">
+                    <img src="images/analog-landscape-city-with-buildings_23-2149661456.avif" alt="3 Rooms Floor Plan"
+                        loading="lazy">
+                </div>
+                <div class="floor-plan-specs">
+                    <h3>3 Rooms Apartment</h3>
+                    <p>Spacious luxury living for larger families with premium finishes.</p>
+                    <div class="spec-item">
+                        <span class="spec-label">Total Area</span>
+                        <span class="spec-value">90m²</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Bedrooms</span>
+                        <span class="spec-value">3</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Bathrooms</span>
+                        <span class="spec-value">2</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Starting Price</span>
+                        <span class="spec-value">Contact Us</span>
+                    </div>
+                    <a href="contact.html" class="btn btn-primary mt-md">Schedule Viewing</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="section" style="background-color: var(--bg-light);">
+        <div class="container">
+            <div class="text-center mb-lg">
+                <h6>Why MARON?</h6>
+                <h2>Trusted by Hundreds of Families</h2>
+                <p class="text-large">Industry-leading expertise and customer satisfaction</p>
+            </div>
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-lg); max-width: 900px; margin: 0 auto;">
+                <div class="fade-in stat-card text-center">
+                    <div class="stat-number">45+</div>
+                    <div class="stat-label">Properties Delivered</div>
+                    <p class="text-small" style="color:var(--text-medium); margin:0;">Premium developments across
+                        Kericho</p>
+                </div>
+                <div class="fade-in stat-card text-center">
+                    <div class="stat-number">120+</div>
+                    <div class="stat-label">Happy Families</div>
+                    <p class="text-small" style="color:var(--text-medium); margin:0;">Successfully homed and satisfied
+                    </p>
+                </div>
+                <div class="fade-in stat-card text-center">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Satisfaction Rate</div>
+                    <p class="text-small" style="color:var(--text-medium); margin:0;">Exceeding expectations
+                        consistently</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Are You Interested in MARON?</h2>
+            <p>Visit our sales office to explore all these opportunities with affordable prices and flexible payment
+                options.</p>
+            <div class="mt-lg">
+                <a href="contact.html" class="btn btn-dark btn-large">Schedule a Visit</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>MARON Real Estate Group</h3>
+                    <p>By aiming to take the life quality to an upper level with all realized projects, MARON continues
+                        to be the address of luxury in Kericho.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Twitter">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Properties</h4>
+                    <ul>
+                        <li><a href="#">Apartments</a></li>
+                        <li><a href="#">Houses</a></li>
+                        <li><a href="#">Commercial</a></li>
+                        <li><a href="#">Land</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 1097-20200 Kericho</p>
+                    <p><i class="fas fa-phone"></i> +(254) 746537878</p>
+                    <p><i class="fas fa-envelope"></i> contact@maron.com</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">&copy; MARON Real Estate Group. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        // Floor Plans Tabs
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                // Remove active class from all buttons and contents
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+                // Add active class to clicked button
+                this.classList.add('active');
+
+                // Show corresponding content
+                const tabId = this.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    </script>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+    </button>
+    <style>
+        /* Debugging / safety override: enforce heading scale to avoid unexpected overrides */
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem) !important;
+            font-weight: 800 !important;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 7vw, 5.5rem) !important;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem) !important;
+        }
+
+        section .text-center h2 {
+            font-size: clamp(2.25rem, 4vw, 3.5rem) !important;
+        }
+    </style>
+</body>
+
+</html>
