@@ -17,11 +17,18 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://marongroup.netlify.app">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="alternate icon" type="image/png" href="/favicon.svg">
+    <meta name="theme-color" content="#CC5500">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="css/maron.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script async src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -38,106 +45,14 @@
     <title>MARON Real Estate Group</title>
 
     <style>
-        /* Additional homepage-specific styles */
-        .hero {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
-        }
+        /* Homepage-specific styles moved to `css/maron.css`.
+           Hero styles are centralized there under the "HOMEPAGE HERO" section. */
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('images/imageProxy.webp');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.4;
-            z-index: 0;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            max-width: 900px;
-            padding: 0 var(--spacing-md);
-        }
-
-        .hero-subtitle {
-            font-size: 1rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: var(--primary-color);
-            margin-bottom: var(--spacing-md);
-            background: rgba(255, 255, 255, 0.1);
-            display: inline-block;
-            padding: 8px 20px;
-            border-radius: var(--radius-full);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .hero {
-            color: var(--text-light);
-            margin-bottom: var(--spacing-md);
-            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-            animation: slideInDown 0.8s ease-out;
-        }
-
-        .hero-subtitle {
-            animation: slideInUp 0.8s ease-out 0.2s both;
-        }
-
-        .hero-description {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: var(--spacing-lg);
-            line-height: 1.8;
-            animation: slideInUp 0.8s ease-out 0.4s both;
-        }
-
-        .hero-buttons {
-            animation: slideInUp 0.8s ease-out 0.6s both;
-        }
-
-        @keyframes slideInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: var(--spacing-md);
-            justify-content: center;
-            flex-wrap: wrap;
+        /* Section heading overrides to match other pages */
+        .section .text-center h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem) !important;
+            font-weight: 700 !important;
+            color: var(--text-dark) !important;
         }
 
         /* Features Grid */
@@ -651,23 +566,23 @@
 </head>
 
 <body>
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="loader-content">
-            <div class="loader-logo">
-                <i class="fa-brands fa-medium"></i>
-            </div>
-            <div class="loader"></div>
-            <p class="loader-text">Loading...</p>
+    <!-- Homepark-Inspired Preloader -->
+    <div class="preloader">
+        <div class="inner">
+            <figure>
+                <i class="fa-brands fa-medium" style="font-size: 4rem; color: white;"></i>
+            </figure>
+            <p>MARON Group</p>
         </div>
     </div>
 
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="logo">
+        <a href="index.html" class="logo"
+            style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
             <i class="fa-brands fa-medium" aria-hidden="true"></i>
             <span>MARON</span>
-        </div>
+        </a>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
@@ -688,9 +603,7 @@
     <section class="hero">
         <div class="hero-content fade-in">
             <p class="hero-subtitle">MARON Elite Residences</p>
-            <h1
-                style="color: var(--text-light); margin-bottom: var(--spacing-md); font-size: 5vw; font-family: var(--font-heading); line-height: 1.2; text-align: center;">
-                We Build Your Dream House</h1>
+            <h1>We Build Your Dream House</h1>
             <p class="hero-description">Living spaces for creative people in Kericho - Beautifully designed properties
                 with modern amenities and attention to every detail.</p>
             <div class="hero-buttons">
@@ -1100,23 +1013,25 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" style="position: relative; z-index: 1;">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-about">
-                    <h3>MARON Real Estate Group</h3>
-                    <p>By aiming to take the life quality to an upper level with all realized projects, MARON continues
-                        to be the address of luxury in Kericho.</p>
+
+                    <div style="text-align: center; margin-bottom: 1rem;">
+                        <i class="fa-brands fa-medium"
+                            style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 0.5rem; display: block;"></i>
+                        <h3 style="margin: 0; font-size: 1.2rem; font-weight: 600; color: var(--text-light);">MARON
+                            GROUP
+                        </h3>
+                    </div>
+                    <p>Your trusted partner for premium real estate in Kericho. We build your dream house with modern
+                        amenities and attention to every detail.</p>
                     <div class="footer-social">
-                        <a href="#" class="social-icon" aria-label="Facebook">
-                            <i class="fa-brands fa-facebook"></i>
-                        </a>
-                        <a href="#" class="social-icon" aria-label="Twitter">
-                            <i class="fa-brands fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-icon" aria-label="Instagram">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
 
@@ -1131,31 +1046,31 @@
                 </div>
 
                 <div class="footer-links">
-                    <h4>Properties</h4>
+                    <h4>Services</h4>
                     <ul>
-                        <li><a href="#">Apartments</a></li>
-                        <li><a href="#">Houses</a></li>
-                        <li><a href="#">Commercial</a></li>
-                        <li><a href="#">Land</a></li>
+                        <li><a href="index.html#properties">Properties</a></li>
+                        <li><a href="about.html">Consultation</a></li>
+                        <li><a href="gallery.html">Floor Plans</a></li>
+                        <li><a href="contact.html">Site Visits</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-contact">
-                    <h4>Contact Us</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> 1097-20200 Kericho</p>
-                    <p><i class="fas fa-phone"></i> +(254) 746537878</p>
-                    <p><i class="fas fa-envelope"></i> contact@maron.com</p>
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Kericho, Kenya</p>
+                    <p><i class="fas fa-phone"></i> +254 746 537 878</p>
+                    <p><i class="fas fa-envelope"></i> info@marongroup.co.ke</p>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p class="copyright">&copy; MARON Real Estate Group. All Rights Reserved.</p>
+                <p class="copyright">© MARON Real Estate Group. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/main.js"></script>
+    <script defer src="js/jquery-3.3.1.min.js"></script>
+    <script defer src="js/main.js"></script>
 
     <script>
         // Floor Plans Tabs
@@ -1179,25 +1094,7 @@
     <button class="theme-toggle" aria-label="Toggle dark mode">
         <i class="fas fa-moon"></i>
     </button>
-    <style>
-        /* Debugging / safety override: enforce heading scale to avoid unexpected overrides */
-        h1 {
-            font-size: clamp(2.5rem, 5vw, 4.5rem) !important;
-            font-weight: 800 !important;
-        }
 
-        .hero h1 {
-            font-size: clamp(3rem, 7vw, 5.5rem) !important;
-        }
-
-        h2 {
-            font-size: clamp(2rem, 4vw, 3.5rem) !important;
-        }
-
-        section .text-center h2 {
-            font-size: clamp(2.25rem, 4vw, 3.5rem) !important;
-        }
-    </style>
 </body>
 
 </html>

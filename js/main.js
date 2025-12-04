@@ -1,6 +1,77 @@
 // ========================================
 // MARON Real Estate Group - Main JavaScript
+// Enhanced with Homepark-inspired transitions
 // ========================================
+
+// ========================================
+// PRELOADER & PAGE LOAD ANIMATIONS
+// ========================================
+function triggerPageLoaded() {
+  console.log("Triggering page-loaded animations");
+  // Add page-loaded class to trigger entrance animations
+  document.body.classList.add("page-loaded");
+  console.log("page-loaded class added to body");
+}
+
+// Trigger preloader exit after 1.5 seconds
+setTimeout(function () {
+  console.log("Initializing preloader exit");
+  triggerPageLoaded();
+}, 1500);
+
+// Remove preloader from DOM after animation completes
+setTimeout(function () {
+  const preloader = document.querySelector(".preloader");
+  if (preloader) {
+    preloader.remove();
+    console.log("Preloader removed from DOM");
+  }
+}, 2300);
+
+// ========================================
+// PAGE TRANSITION OVERLAY (Navigation)
+// ========================================
+document.addEventListener("DOMContentLoaded", function () {
+  // Create transition overlay if it doesn't exist
+  if (!document.querySelector(".transition-overlay")) {
+    const overlay = document.createElement("div");
+    overlay.className = "transition-overlay";
+
+    const layer = document.createElement("div");
+    layer.className = "layer";
+    overlay.appendChild(layer);
+
+    document.body.appendChild(overlay);
+  }
+
+  // Intercept all navigation links
+  const links = document.querySelectorAll("a[href]");
+  links.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      const href = this.getAttribute("href");
+
+      // Only trigger transition for internal pages (not # anchors or external links)
+      if (
+        href &&
+        !href.startsWith("#") &&
+        !href.startsWith("http") &&
+        !href.startsWith("mailto") &&
+        !href.startsWith("tel")
+      ) {
+        e.preventDefault();
+
+        // Activate transition overlay
+        const overlay = document.querySelector(".transition-overlay");
+        overlay.classList.add("active");
+
+        // Navigate after animation completes
+        setTimeout(function () {
+          window.location.href = href;
+        }, 1300); // Match CSS transition duration + delay
+      }
+    });
+  });
+});
 
 // ========================================
 // MOBILE MENU TOGGLE
@@ -342,19 +413,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // ========================================
-// PRELOADER
+// PRELOADER (Replaced by Homepark-style load animation)
 // ========================================
-$(window).on("load", function () {
-  const preloader = $("#preloader");
-  if (preloader.length) {
-    preloader.addClass("fade-out");
-
-    // Remove from DOM after transition completes
-    setTimeout(function () {
-      preloader.remove();
-    }, 500);
-  }
-});
+// Handled by page-loaded class - see top of file
 
 // ========================================
 // DARK THEME TOGGLE
@@ -536,4 +597,54 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", checkCountersInView);
   // Check initially
   checkCountersInView();
+});
+
+// ========================================
+// FOOTER ANIMATION (Scroll-Triggered)
+// ========================================
+document.addEventListener("DOMContentLoaded", function () {
+  const footer = document.querySelector(".footer");
+
+  if (!footer) return;
+
+  const footerAbout = footer.querySelector(".footer-about");
+  const footerLinks = footer.querySelectorAll(".footer-links");
+  const footerContact = footer.querySelector(".footer-contact");
+  const footerBottom = footer.querySelector(".footer-bottom");
+
+  // Create intersection observer for footer
+  const footerObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Trigger animations when footer comes into view
+          setTimeout(() => {
+            if (footerAbout) footerAbout.classList.add("animate");
+          }, 100);
+
+          setTimeout(() => {
+            footerLinks.forEach((link) => link.classList.add("animate"));
+          }, 300);
+
+          setTimeout(() => {
+            if (footerContact) footerContact.classList.add("animate");
+          }, 500);
+
+          setTimeout(() => {
+            if (footerBottom) footerBottom.classList.add("animate");
+          }, 700);
+
+          // Unobserve after animation is triggered
+          footerObserver.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.1, // Trigger when 10% of footer is visible
+      rootMargin: "0px 0px -50px 0px", // Trigger slightly before footer is fully visible
+    }
+  );
+
+  // Observe the footer
+  footerObserver.observe(footer);
 });

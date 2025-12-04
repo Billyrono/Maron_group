@@ -1,0 +1,5 @@
+# Netlify redirects file for MARON Real Estate Group
+# All 404 errors redirect to custom 404 page
+
+# Redirect all non-existent pages to 404.html
+/* /404.html 404

@@ -14,8 +14,16 @@
         content="Discover the story behind MARON Real Estate Group and our commitment to premium properties in Kericho.">
     <meta property="og:type" content="website">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="alternate icon" type="image/png" href="/favicon.svg">
+    <meta name="theme-color" content="#CC5500">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="css/maron.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script async src="https://cdn.tailwindcss.com"></script>
     <title>About Us</title>
 
     <style>
@@ -161,27 +169,39 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        @keyframes counterUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 
 <body>
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="loader-content">
-            <div class="loader-logo">
-                <i class="fa-brands fa-medium"></i>
-            </div>
-            <div class="loader"></div>
-            <p class="loader-text">Loading...</p>
+    <!-- Homepark-Inspired Preloader -->
+    <div class="preloader">
+        <div class="inner">
+            <figure>
+                <i class="fa-brands fa-medium" style="font-size: 4rem; color: white;"></i>
+            </figure>
+            <p>MARON Group</p>
         </div>
     </div>
 
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="logo">
+        <a href="index.html" class="logo"
+            style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
             <i class="fa-brands fa-medium"></i>
             <span>MARON</span>
-        </div>
+        </a>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
@@ -242,20 +262,20 @@
                 <p class="text-large">Delivering excellence across every metric</p>
             </div>
             <div class="stats-grid">
-                <div class="stat-card fade-in counter-card">
-                    <div class="stat-number">45+</div>
+                <div class="stat-card fade-in counter-card" data-target="45">
+                    <div class="stat-number">0+</div>
                     <div class="stat-label">Properties Developed</div>
                 </div>
-                <div class="stat-card fade-in counter-card">
-                    <div class=" stat-number">120+</div>
+                <div class="stat-card fade-in counter-card" data-target="120">
+                    <div class=" stat-number">0+</div>
                     <div class="stat-label">Happy Families</div>
                 </div>
-                <div class="stat-card fade-in counter-card">
-                    <div class="stat-number">2+</div>
+                <div class="stat-card fade-in counter-card" data-target="2">
+                    <div class="stat-number">0+</div>
                     <div class="stat-label">Years Experience</div>
                 </div>
-                <div class="stat-card fade-in counter-card">
-                    <div class="stat-number">3+</div>
+                <div class="stat-card fade-in counter-card" data-target="3">
+                    <div class="stat-number">0+</div>
                     <div class="stat-label">Awards Won</div>
                 </div>
             </div>
@@ -359,19 +379,28 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" style="position: relative; z-index: 1;">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-about">
-                    <h3>MARON Real Estate Group</h3>
-                    <p>By aiming to take the life quality to an upper level with all realized projects, MARON continues
-                        to be the address of luxury in Kericho.</p>
+
+                    <div style="text-align: center; margin-bottom: 1rem;">
+                        <i class="fa-brands fa-medium"
+                            style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 0.5rem; display: block;"></i>
+                        <h3 style="margin: 0; font-size: 1.2rem; font-weight: 600; color: var(--text-light);">MARON
+                            GROUP
+                        </h3>
+                    </div>
+                    <p>Your trusted partner for premium real estate in Kericho. We build your dream house with modern
+                        amenities and attention to every detail.</p>
                     <div class="footer-social">
-                        <a href="#" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
+
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
@@ -381,30 +410,70 @@
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
+
                 <div class="footer-links">
-                    <h4>Properties</h4>
+                    <h4>Services</h4>
                     <ul>
-                        <li><a href="#">Apartments</a></li>
-                        <li><a href="#">Houses</a></li>
-                        <li><a href="#">Commercial</a></li>
-                        <li><a href="#">Land</a></li>
+                        <li><a href="index.html#properties">Properties</a></li>
+                        <li><a href="about.html">Consultation</a></li>
+                        <li><a href="gallery.html">Floor Plans</a></li>
+                        <li><a href="contact.html">Site Visits</a></li>
                     </ul>
                 </div>
+
                 <div class="footer-contact">
-                    <h4>Contact Us</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> 1097-20200 Kericho</p>
-                    <p><i class="fas fa-phone"></i> +(254) 746537878</p>
-                    <p><i class="fas fa-envelope"></i> contact@maron.com</p>
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Kericho, Kenya</p>
+                    <p><i class="fas fa-phone"></i> +254 746 537 878</p>
+                    <p><i class="fas fa-envelope"></i> info@marongroup.co.ke</p>
                 </div>
             </div>
+
             <div class="footer-bottom">
-                <p class="copyright">&copy; MARON Real Estate Group. All Rights Reserved.</p>
+                <p class="copyright">© MARON Real Estate Group. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/main.js"></script>
+    <script defer src="js/jquery-3.3.1.min.js"></script>
+    <script defer src="js/main.js"></script>
+
+    <!-- Counter Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const counterCards = document.querySelectorAll('.counter-card');
+
+            const animateCounter = (element) => {
+                const target = parseInt(element.getAttribute('data-target'));
+                const statNumber = element.querySelector('.stat-number');
+                let current = 0;
+                const increment = target / 50; // Divide into 50 steps for smooth animation
+                const duration = 2000; // 2 seconds
+                const step = duration / 50;
+
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    statNumber.textContent = Math.floor(current) + '+';
+                }, step);
+            };
+
+            // Use Intersection Observer to animate when element comes into view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                        entry.target.classList.add('animated');
+                        animateCounter(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            counterCards.forEach(card => observer.observe(card));
+        });
+    </script>
 
     <!-- Theme Toggle Button -->
     <button class="theme-toggle" aria-label="Toggle dark mode">

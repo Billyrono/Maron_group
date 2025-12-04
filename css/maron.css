@@ -1,16 +1,16 @@
 /* ========================================
-   MARON Real Estate Group - Modern Redesign
-   Inspired by Homepark Template
-   ======================================== */
+ MARON Real Estate Group - Modern Redesign
+ Inspired by Homepark Template
+ ======================================== */
 
 /* ========================================
-   GOOGLE FONTS
-   ======================================== */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;600;700&display=swap");
+ GOOGLE FONTS
+ ======================================== */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
 /* ========================================
-   CSS VARIABLES - Modern Design System
-   ======================================== */
+ CSS VARIABLES - Modern Design System
+ ======================================== */
 :root {
   /* Brand Colors */
   --primary-color: rgba(204, 85, 0, 1);
@@ -37,9 +37,9 @@
   --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
   --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.2);
 
-  /* Typography */
-  --font-heading: "Poppins", sans-serif;
-  --font-body: "Open Sans", sans-serif;
+  /* Typography - Homepark Style */
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Poppins", sans-serif;
 
   /* Spacing */
   --spacing-xs: 8px;
@@ -48,13 +48,16 @@
   --spacing-lg: 48px;
   --spacing-xl: 80px;
 
-  /* Transitions */
-  --transition-fast: 0.2s ease;
+  /* Transitions - Homepark Inspired */
+  --transition-fast: 0.25s ease-in-out;
   --transition-base: 0.3s ease;
   --transition-slow: 0.5s ease;
+  --transition-elastic: 700ms cubic-bezier(0.86, 0, 0.07, 1);
+  --transition-smooth: 500ms cubic-bezier(0.86, 0, 0.07, 1);
 
   /* Typography tokens */
-  --font-small: 0.9rem; /* use for small UI text; prefer using classes instead of inline styles */
+  --font-small: 0.9rem;
+  /* use for small UI text; prefer using classes instead of inline styles */
 
   /* Borders */
   --radius-sm: 4px;
@@ -64,8 +67,8 @@
 }
 
 /* ========================================
-   RESET & BASE STYLES
-   ======================================== */
+ RESET & BASE STYLES
+ ======================================== */
 * {
   margin: 0;
   padding: 0;
@@ -93,14 +96,22 @@ img {
 a {
   text-decoration: none;
   color: inherit;
-  transition: all var(--transition-base);
+  transition: all var(--transition-fast);
 }
 
 button {
   cursor: pointer;
   border: none;
   font-family: inherit;
-  transition: all var(--transition-base);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  transition-duration: 700ms;
+  -webkit-transition-duration: 700ms;
+  transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
 }
 
 button:focus,
@@ -112,8 +123,8 @@ textarea:focus {
 }
 
 /* ========================================
-   TYPOGRAPHY SYSTEM
-   ======================================== */
+ TYPOGRAPHY SYSTEM
+ ======================================== */
 h1,
 h2,
 h3,
@@ -128,7 +139,7 @@ h6 {
 }
 
 h1 {
-  font-size: clamp(2.5rem, 5vw, 4.5rem) !important;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
   font-weight: 800;
   letter-spacing: -0.02em;
 }
@@ -177,8 +188,8 @@ p {
 }
 
 /* ========================================
-   MODERN NAVIGATION
-   ======================================== */
+ MODERN NAVIGATION
+ ======================================== */
 .navbar {
   position: fixed;
   top: 0;
@@ -293,7 +304,19 @@ p {
   color: var(--text-light);
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   background: none;
-  transition: all var(--transition-base);
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+  -webkit-transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.menu-btn i {
+  -webkit-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
 }
 
 .navbar.scrolled .menu-btn {
@@ -302,8 +325,8 @@ p {
 }
 
 /* ========================================
-   MODERN BUTTON SYSTEM
-   ======================================== */
+ MODERN BUTTON SYSTEM
+ ======================================== */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -374,8 +397,8 @@ p {
 }
 
 /* ========================================
-   PAGE HERO (for secondary pages)
-   ======================================== */
+ PAGE HERO (for secondary pages)
+ ======================================== */
 .page-hero {
   position: relative;
   height: 60vh;
@@ -398,6 +421,19 @@ p {
   background-size: cover;
   background-position: center;
   opacity: 0.3;
+  z-index: 0;
+}
+
+/* Black overlay for hero images */
+.page-hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
 }
 
 .page-hero-content {
@@ -413,13 +449,143 @@ p {
 }
 
 .page-hero-content h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 800;
   color: var(--text-light);
   margin-bottom: var(--spacing-md);
+  letter-spacing: -0.02em;
 }
 
 /* ========================================
-   ABOUT PAGE STYLES
-   ======================================== */
+ HOMEPAGE HERO (homepage-specific, moved from inline index.html)
+ ======================================== */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+  color: var(--text-light);
+  margin-bottom: var(--spacing-sm);
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  animation: slideInDown 0.8s ease-out;
+}
+
+.hero h1 {
+  color: var(--text-light);
+  font-weight: 800;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../images/imageProxy.webp");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.4;
+  z-index: 0;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 900px;
+  padding: 0 var(--spacing-md);
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: var(--spacing-sm);
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: slideInUp 0.8s ease-out 0.2s both;
+}
+
+.hero-description {
+  font-size: 1.2rem !important;
+  color: var(--text-light) !important;
+  margin-bottom: var(--spacing-md);
+  line-height: 1.8;
+  animation: slideInUp 0.8s ease-out 0.4s both;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: slideInUp 0.8s ease-out 0.6s both;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive tweaks for hero */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-description {
+    font-size: 1.1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* ========================================
+ ABOUT PAGE STYLES
+ ======================================== */
 .story-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -507,8 +673,8 @@ p {
 }
 
 /* ========================================
-   GALLERY PAGE STYLES
-   ======================================== */
+ GALLERY PAGE STYLES
+ ======================================== */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -570,8 +736,8 @@ p {
 }
 
 /* ========================================
-   CONTACT PAGE STYLES
-   ======================================== */
+ CONTACT PAGE STYLES
+ ======================================== */
 .contact-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -684,8 +850,8 @@ p {
 }
 
 /* ========================================
-   CTA SECTION
-   ======================================== */
+ CTA SECTION
+ ======================================== */
 .cta-section {
   background: var(--primary-gradient);
   color: var(--text-light);
@@ -705,12 +871,13 @@ p {
 }
 
 /* ========================================
-   FOOTER
-   ======================================== */
+ FOOTER
+ ======================================== */
 .footer {
   background-color: var(--bg-dark);
   color: var(--text-light);
   padding: var(--spacing-xl) 0 var(--spacing-md);
+  overflow: hidden;
 }
 
 .footer-grid {
@@ -718,6 +885,55 @@ p {
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: var(--spacing-xl);
   margin-bottom: var(--spacing-lg);
+}
+
+/* Footer animation styles */
+.footer-about,
+.footer-links,
+.footer-contact {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.footer-about.animate,
+.footer-links.animate,
+.footer-contact.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered animation delays */
+.footer-about.animate {
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.1s;
+}
+
+.footer-links:nth-child(2).animate {
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.footer-links:nth-child(3).animate {
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+.footer-contact.animate {
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.7s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .footer-about h3 {
@@ -749,7 +965,8 @@ p {
 
 .social-icon:hover {
   background-color: var(--primary-color);
-  transform: translateY(-4px);
+  transform: translateY(-4px) rotate(5deg);
+  box-shadow: 0 4px 12px rgba(204, 85, 0, 0.4);
 }
 
 .footer-links h4 {
@@ -764,17 +981,44 @@ p {
 
 .footer-links li {
   margin-bottom: var(--spacing-sm);
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease-out;
+}
+
+.footer-links.animate li {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Staggered list item animations */
+.footer-links.animate li:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.footer-links.animate li:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.footer-links.animate li:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.footer-links.animate li:nth-child(4) {
+  transition-delay: 0.4s;
 }
 
 .footer-links a {
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.95rem;
   transition: all var(--transition-fast);
+  display: inline-block;
 }
 
 .footer-links a:hover {
   color: var(--primary-color);
-  padding-left: 4px;
+  padding-left: 8px;
+  transform: translateX(4px);
 }
 
 .footer-contact h4 {
@@ -789,11 +1033,22 @@ p {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
+  transition: all var(--transition-base);
+}
+
+.footer-contact p:hover {
+  color: var(--text-light);
+  transform: translateX(5px);
 }
 
 .footer-contact i {
   color: var(--primary-color);
   width: 20px;
+  transition: all var(--transition-base);
+}
+
+.footer-contact p:hover i {
+  transform: scale(1.2);
 }
 
 .footer-bottom {
@@ -802,6 +1057,15 @@ p {
   text-align: center;
   color: rgba(255, 255, 255, 0.5);
   font-size: 0.9rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+
+.footer-bottom.animate {
+  opacity: 1;
+  transform: translateY(0);
+  animation-delay: 0.9s;
 }
 
 .copyright {
@@ -809,8 +1073,8 @@ p {
 }
 
 /* ========================================
-   UTILITY CLASSES
-   ======================================== */
+ UTILITY CLASSES
+ ======================================== */
 .container {
   max-width: 1400px;
   margin: 0 auto;
@@ -873,8 +1137,8 @@ p {
 }
 
 /* ========================================
-   ANIMATIONS
-   ======================================== */
+ ANIMATIONS
+ ======================================== */
 .fade-in {
   animation: fadeIn 0.6s ease-in;
 }
@@ -924,8 +1188,8 @@ p {
 }
 
 /* ========================================
-   RESPONSIVE DESIGN
-   ======================================== */
+ RESPONSIVE DESIGN
+ ======================================== */
 
 /* Tablet */
 @media (max-width: 1024px) {
@@ -1028,56 +1292,9 @@ p {
 }
 
 /* ========================================
-   PRELOADER
-   ======================================== */
-#preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 9999;
-  background-color: var(--bg-white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
-}
-
-#preloader.fade-out {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.loader {
-  width: 60px;
-  height: 60px;
-  border: 4px solid var(--border-light);
-  border-top-color: var(--primary-color);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-.loader-content {
-  text-align: center;
-}
-
-.loader-logo {
-  font-size: 3rem;
-  color: var(--primary-color);
-  margin-bottom: var(--spacing-md);
-  animation: pulse 1.5s ease-in-out infinite;
-}
-
-.loader-text {
-  margin-top: var(--spacing-md);
-  color: var(--text-medium);
-  font-family: var(--font-heading);
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-size: 0.85rem;
-}
+ OLD PRELOADER (Replaced by Homepark style)
+ ======================================== */
+/* Removed - See "HOMEPARK-INSPIRED TRANSITIONS" section */
 
 @keyframes spin {
   0% {
@@ -1103,8 +1320,8 @@ p {
 }
 
 /* ========================================
-   DARK THEME
-   ======================================== */
+ DARK THEME
+ ======================================== */
 
 /* Dark Theme Variables */
 [data-theme="dark"] {
@@ -1205,8 +1422,8 @@ body,
 }
 
 /* ========================================
-   UI/UX ENHANCEMENTS
-   ======================================== */
+ UI/UX ENHANCEMENTS
+ ======================================== */
 
 /* Enhanced Button Ripple Effect */
 .btn {
@@ -1252,75 +1469,375 @@ body,
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
+}
 
-  /* ========================================
-   TYPOGRAPHY ENHANCEMENTS
-   ======================================== */
+/* ========================================
+ HOMEPARK-INSPIRED TRANSITIONS
+ ======================================== */
 
-  /* Better font hierarchy */
-  .cta-section h2 {
-    font-size: clamp(2.5rem, 5vw, 4rem) !important;
-    font-weight: 800;
-    line-height: 1.1;
-  }
+/* ========================================
+ 1. PRELOADER (Page Load Effect)
+ ======================================== */
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--primary-color);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transform: translateX(0);
+  -webkit-transition: all 700ms cubic-bezier(0.86, 0, 0.07, 1);
+  -moz-transition: all 700ms cubic-bezier(0.86, 0, 0.07, 1);
+  -ms-transition: all 700ms cubic-bezier(0.86, 0, 0.07, 1);
+  -o-transition: all 700ms cubic-bezier(0.86, 0, 0.07, 1);
+  transition: all 700ms cubic-bezier(0.86, 0, 0.07, 1);
+}
 
-  .cta-section p {
-    font-size: clamp(1.15rem, 2.5vw, 1.5rem) !important;
-    font-weight: 300;
-    line-height: 1.6;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.preloader .inner {
+  text-align: center;
+  color: white;
+}
 
-  .cta-section .btn {
-    font-size: 1.125rem !important;
-    padding: 20px 48px !important;
-  }
+.preloader .inner figure {
+  margin-bottom: 30px;
+  opacity: 1;
+  transform: scale(1);
+  -webkit-transition: all 700ms cubic-bezier(0.86, 0, 0.07, 1);
+  -moz-transition: all 700ms cubic-bezier(0.86, 0, 0.07, 1);
+  -ms-transition: all 700ms cubic-bezier(0.86, 0, 0.07, 1);
+  transition: all 700ms cubic-bezier(0.86, 0, 0.07, 1);
+}
 
-  /* Feature cards */
-  .feature-card h4 {
-    font-size: 1.35rem !important;
-    font-weight: 700;
-  }
+.preloader .inner figure img {
+  max-width: 120px;
+  margin: 0 auto;
+}
 
-  .feature-card p {
-    font-size: 1.05rem !important;
-    line-height: 1.7;
-  }
+.preloader .inner p {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 1;
+  transform: translateY(0);
+  -webkit-transition: all 700ms cubic-bezier(0.86, 0, 0.07, 1);
+  -moz-transition: all 700ms cubic-bezier(0.86, 0, 0.07, 1);
+  -ms-transition: all 700ms cubic-bezier(0.86, 0, 0.07, 1);
+  transition: all 700ms cubic-bezier(0.86, 0, 0.07, 1);
+}
 
-  /* Property cards */
-  .property-title {
-    font-size: 1.65rem !important;
-    font-weight: 700;
-  }
+/* Active state - slides off screen to the right */
+body.page-loaded .preloader {
+  opacity: 0;
+  transform: translateX(100%);
+}
 
-  .property-content p {
-    font-size: 1.05rem !important;
-    line-height: 1.7;
-  }
+body.page-loaded .preloader .inner figure {
+  opacity: 0;
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
+}
 
-  /* Section headings */
-  section .text-center h2 {
-    font-size: clamp(2.25rem, 4vw, 3.5rem) !important;
-  }
+body.page-loaded .preloader .inner p {
+  -webkit-transform: translateY(20px);
+  -moz-transform: translateY(20px);
+  -ms-transform: translateY(20px);
+  transform: translateY(20px);
+  opacity: 0;
+}
 
-  section .text-large {
-    font-size: 1.35rem !important;
-    line-height: 1.6;
-  }
+/* ========================================
+ 2. PAGE TRANSITION OVERLAY (Navigation)
+ ======================================== */
+.transition-overlay {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100vh;
+  background: var(--primary-color);
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  visibility: hidden;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  transition-duration: 700ms;
+  -webkit-transition-duration: 700ms;
+  transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+}
 
-  /* Hero section */
-  .hero h1 {
-    font-size: clamp(3rem, 7vw, 5.5rem) !important;
-  }
+.transition-overlay.active {
+  left: 0;
+  pointer-events: auto;
+  visibility: visible;
+}
 
-  .hero-description {
-    font-size: 1.4rem !important;
-    line-height: 1.8;
-  }
+.transition-overlay .layer {
+  position: absolute;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100vh;
+  background: var(--bg-dark);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  transition-duration: 700ms;
+  -webkit-transition-duration: 700ms;
+  transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  transition-delay: 0.6s;
+  -webkit-transition-delay: 0.6s;
+}
 
-  .hero-subtitle {
-    font-size: 1.1rem !important;
-  }
+.transition-overlay.active .layer {
+  right: 0;
+}
+
+/* ========================================
+ 3. STAGGERED NAVBAR ANIMATIONS
+ ======================================== */
+.navbar .container .upper-side {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body.page-loaded .navbar .container .upper-side {
+  -webkit-transition: all 0.7s ease;
+  -moz-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+  transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  transition-delay: 1.2s;
+  -webkit-transition-delay: 1.2s;
+  opacity: 1;
+}
+
+.navbar .logo {
+  opacity: 1;
+}
+
+body.page-loaded .navbar .logo {
+  -webkit-transition: all 0.7s ease;
+  -moz-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+  transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  transition-delay: 1.25s;
+  -webkit-transition-delay: 1.25s;
+  opacity: 1;
+}
+
+.navbar .links {
+  opacity: 1;
+}
+
+body.page-loaded .navbar .links {
+  -webkit-transition: all 0.7s ease;
+  -moz-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+  transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  transition-delay: 1.4s;
+  -webkit-transition-delay: 1.4s;
+  opacity: 1;
+}
+
+/* ========================================
+ 4. ENHANCED CARD HOVER EFFECTS
+ ======================================== */
+.feature-card,
+.property-card,
+.gallery-item,
+.amenity-card {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  transition-duration: 500ms;
+  -webkit-transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.feature-card:hover,
+.property-card:hover,
+.gallery-item:hover,
+.amenity-card:hover {
+  -webkit-transform: translateY(-12px);
+  -moz-transform: translateY(-12px);
+  -ms-transform: translateY(-12px);
+  transform: translateY(-12px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+}
+
+/* Smooth image zoom on card hover */
+.property-card .property-image,
+.gallery-item .image-container {
+  overflow: hidden;
+}
+
+.property-card .property-image img,
+.gallery-item .image-container img {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  transition-duration: 700ms;
+  -webkit-transition-duration: 700ms;
+  transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.property-card:hover .property-image img,
+.gallery-item:hover .image-container img {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+/* ========================================
+ 5. HERO SECTION ENTRANCE
+ ======================================== */
+.hero .hero-content {
+  opacity: 1;
+  transform: scale(1);
+  transition: none;
+}
+
+body.page-loaded .hero .hero-content {
+  -webkit-transition: all 0.7s ease;
+  -moz-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+  transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  transition-delay: 1.25s;
+  -webkit-transition-delay: 1.25s;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* ========================================
+ TYPOGRAPHY ENHANCEMENTS
+ ======================================== */
+
+/* Better font hierarchy */
+.cta-section h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem) !important;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.cta-section p {
+  font-size: clamp(1.15rem, 2.5vw, 1.5rem) !important;
+  font-weight: 300;
+  line-height: 1.6;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-section .btn {
+  font-size: 1.125rem !important;
+  padding: 20px 48px !important;
+}
+
+/* Feature cards */
+.feature-card h4 {
+  font-size: 1.35rem !important;
+  font-weight: 700;
+}
+
+.feature-card p {
+  font-size: 1.05rem !important;
+  line-height: 1.7;
+}
+
+/* Property cards */
+.property-title {
+  font-size: 1.65rem !important;
+  font-weight: 700;
+}
+
+.property-content p {
+  font-size: 1.05rem !important;
+  line-height: 1.7;
+}
+
+/* Section headings */
+section .text-center h2 {
+  font-size: clamp(2.25rem, 4vw, 3.5rem) !important;
+}
+
+section .text-large {
+  font-size: 1.2rem !important;
+  line-height: 1.8;
+}
+
+/* Hero section */
+.hero h1 {
+  font-size: clamp(2.8rem, 5.5vw, 4.8rem) !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* Alert Messages */
+.alert {
+  padding: 1rem 1.25rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  animation: slideInUp 0.4s ease-out;
+}
+
+.alert-success {
+  background-color: #d1fae5;
+  color: #065f46;
+  border: 1px solid #6ee7b7;
+}
+
+.alert-error {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+}
+
+.alert-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.alert-close {
+  margin-left: auto;
+  cursor: pointer;
+  font-size: 1.25rem;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.alert-close:hover {
+  opacity: 1;
 }
